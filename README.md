@@ -1,7 +1,6 @@
 # 📱 AN KHANG STORE – POINT OF SALE (POS) SYSTEM
 
 > **Môn học:** 503073 – Web Programming and Applications  
-> **Giảng viên hướng dẫn:** ThS. Phan Thị Thanh Phương  
 > **Trường Đại học Tôn Đức Thắng – Khoa CNTT**
 
 ---
@@ -221,12 +220,6 @@ php artisan serve
 - MySQL CRUD Operations  
 - jQuery Event Handling & AJAX  
 - Bootstrap 5 Responsive Design  
-
----
-
-## 📜 Giấy cam kết
-> Chúng tôi xin cam đoan toàn bộ nội dung và mã nguồn là sản phẩm của nhóm, được thực hiện dưới sự hướng dẫn của **ThS. Phan Thị Thanh Phương**.  
-> Mọi hành vi sao chép không được phép đều vi phạm quy định học thuật của Trường Đại học Tôn Đức Thắng.
 
 ---
 
