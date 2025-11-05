@@ -1,18 +1,26 @@
-# 📱 AN KHANG STORE – POINT OF SALE (POS) SYSTEM
+# 💻 AN KHANG STORE – HỆ THỐNG QUẢN LÝ BÁN HÀNG (POS)
 
 > **Môn học:** 503073 – Web Programming and Applications  
-> **Trường Đại học Tôn Đức Thắng – Khoa CNTT**
+> **Trường Đại học Tôn Đức Thắng – Khoa Công nghệ Thông tin  
+> Framework:** Laravel 10 (PHP 8.1+)
 
 ---
 
-## 🧾 Giới thiệu dự án
+## 🧾 GIỚI THIỆU DỰ ÁN
 
-**AN KHANG STORE** là một hệ thống **Point of Sale (POS)** được xây dựng nhằm phục vụ việc bán hàng tại các cửa hàng điện thoại và phụ kiện điện tử.  
-Khác với website thương mại điện tử (E-commerce), **người mua hàng không thể truy cập hệ thống này** — ứng dụng chỉ dành cho **nhân viên bán hàng và quản trị viên**.
+**AN KHANG STORE** là một ứng dụng **Point of Sale (POS)** được xây dựng bằng **Laravel Framework**, phục vụ cho việc quản lý và bán hàng tại cửa hàng điện thoại và phụ kiện điện tử.  
+Khác với website thương mại điện tử (E-commerce), **người mua hàng không thể truy cập hệ thống này** — ứng dụng chỉ dành cho **nhân viên bán hàng và quản trị viên nội bộ**.
+
+Dự án được phát triển nhằm mục tiêu:
+- Củng cố kiến thức lập trình web backend và frontend trong môi trường thực tế.
+- Ứng dụng framework **Laravel 10** và các thư viện mở rộng như Livewire, DOMPDF, Toastr.
+- Xây dựng hệ thống POS đơn giản, trực quan, hiệu quả cho cửa hàng điện thoại.
+- Quản lý nhân viên, sản phẩm, khách hàng, giao dịch, báo cáo doanh thu.
+- Hỗ trợ gửi email tự động, đăng nhập 1 phút cho nhân viên mới, phân quyền rõ ràng.
 
 ---
 
-## 👥 Thành viên nhóm
+## 👥 THÀNH VIÊN NHÓM
 
 | Họ và Tên | MSSV | Vai trò |
 |------------|-------|----------|
@@ -23,162 +31,168 @@ Khác với website thương mại điện tử (E-commerce), **người mua hà
 
 ---
 
-## 🎯 Mục tiêu hệ thống
+## ⚙️ CÔNG NGHỆ SỬ DỤNG
 
-- Xây dựng hệ thống POS đơn giản, trực quan, hiệu quả cho cửa hàng điện thoại.
-- Quản lý nhân viên, sản phẩm, khách hàng, giao dịch, báo cáo doanh thu.
-- Hỗ trợ gửi email tự động, đăng nhập 1 phút cho nhân viên mới, phân quyền rõ ràng.
+### 🔹 Backend
+- **Laravel 10** (PHP ≥ 8.1)
+- **Laravel Sanctum** – Xác thực API / Token  
+- **Laravel Livewire** – Giao diện động, phản hồi nhanh  
+- **Barryvdh/Dompdf** – Xuất hóa đơn dạng PDF  
+- **Yoeunes/Toastr** – Thông báo popup trực quan  
+- **GuzzleHTTP** – Kết nối HTTP API  
+- **MySQL** – Lưu trữ dữ liệu  
+
+### 🔹 Frontend
+- **Bootstrap 5** – Giao diện hiện đại, responsive  
+- **jQuery / Livewire** – Tạo tương tác động  
+- **Vite.js** – Biên dịch CSS/JS nhanh hơn cho Laravel  
+- **Blade Template Engine** – Giao diện động phía server  
+
+### 🔹 Công cụ phát triển
+- Composer, Artisan CLI, PHPUnit, Laravel Pint  
+- XAMPP / Laragon – Môi trường PHP & MySQL  
+- GitHub, VS Code, Node.js, NPM  
 
 ---
 
-## ⚙️ Công nghệ sử dụng
+## 🧩 CÁC CHỨC NĂNG CHÍNH
 
-- **Backend:** PHP Laravel Framework  
-- **Frontend:** HTML, CSS, Bootstrap, JavaScript, jQuery  
-- **Database:** MySQL (thông qua XAMPP)  
-- **Tools:** Composer, Artisan CLI, Blade Template Engine  
-- **Hosting/Server (demo):** Localhost / PHP Artisan Serve  
-- **Email Service:** Laravel Mail với Gmail SMTP  
-
----
-
-## 🧩 Các chức năng chính
-
-### 1️⃣ Quản lý tài khoản (Account Management)
-- Admin mặc định: `username: admin`, `password: admin`
+### 1️⃣ Quản lý tài khoản & phân quyền
+- Tài khoản **Admin** mặc định: `admin / admin`
 - Admin có thể:
-  - Tạo tài khoản nhân viên mới (yêu cầu nhập Gmail)
-  - Gửi **email tự động** chứa link đăng nhập có hiệu lực **1 phút**
-  - Khoá / mở khoá tài khoản nhân viên
+  - Tạo tài khoản nhân viên (bắt buộc nhập Gmail)
+  - Gửi **email tự động** chứa link kích hoạt hợp lệ trong **1 phút**
+  - Khóa / mở khóa tài khoản nhân viên
   - Xem hồ sơ, avatar, doanh thu cá nhân của nhân viên
 - Nhân viên:
-  - Phải đăng nhập qua email lần đầu, sau đó đổi mật khẩu mới
-  - Có thể cập nhật avatar, đổi mật khẩu
-  - Không thể truy cập hệ thống nếu chưa đổi mật khẩu lần đầu
+  - Lần đầu phải đăng nhập qua email kích hoạt và đổi mật khẩu
+  - Có thể cập nhật avatar, mật khẩu mới
+  - Không truy cập được hệ thống nếu chưa đổi mật khẩu
 
 ---
 
-### 2️⃣ Quản lý sản phẩm (Product Management)
-- Admin có thể:
-  - Thêm, sửa, xoá, xem danh sách sản phẩm
-  - Xem các thuộc tính: mã vạch, tên, loại, thương hiệu, giá nhập, giá bán, ngày tạo, mô tả
-  - Chặn xoá sản phẩm đã từng xuất hiện trong đơn hàng
-- Nhân viên chỉ có quyền xem danh sách sản phẩm (không thấy giá nhập, không có nút xoá/sửa)
+### 2️⃣ Quản lý sản phẩm
+- Admin có thể thêm, sửa, xóa, xem danh sách sản phẩm.  
+- Mỗi sản phẩm có:
+  - Mã vạch (barcode), tên, loại, thương hiệu, giá nhập, giá bán, ngày tạo, mô tả.
+- Không thể xóa sản phẩm đã nằm trong đơn hàng.
+- Nhân viên chỉ có quyền xem, không chỉnh sửa hay xóa.
+- Giao diện ẩn các nút thao tác không được phép cho nhân viên.
 
 ---
 
-### 3️⃣ Quản lý khách hàng (Customer Management)
-- Khi thanh toán, nhân viên nhập **số điện thoại khách hàng**
-  - Nếu khách đã tồn tại → tự động hiển thị tên, địa chỉ
-  - Nếu khách mới → hệ thống tự tạo tài khoản khách hàng
-- Nhân viên có thể xem:
-  - Thông tin khách hàng
-  - Lịch sử giao dịch
-  - Chi tiết từng đơn hàng (sản phẩm, số lượng, tiền thừa, ngày, tổng tiền)
-- Tìm kiếm khách hàng bằng số điện thoại với xác minh từ DB
+### 3️⃣ Quản lý khách hàng
+- Khi thanh toán, nhập **số điện thoại khách hàng**:
+  - Nếu tồn tại → tự động hiển thị thông tin.
+  - Nếu chưa có → hệ thống tự tạo khách hàng mới.
+- Xem thông tin khách hàng, lịch sử mua hàng, chi tiết đơn hàng (sản phẩm, tổng tiền, tiền thừa,…).
+- Tìm kiếm khách hàng bằng số điện thoại, xác minh từ cơ sở dữ liệu.
 
 ---
 
-### 4️⃣ Xử lý giao dịch (Transaction Processing)
+### 4️⃣ Xử lý giao dịch (Bán hàng)
 - Nhân viên có thể:
-  - Thêm sản phẩm vào đơn hàng bằng **tìm kiếm hoặc nhập mã vạch**
-  - Xem danh sách sản phẩm trong đơn hàng kèm số lượng, giá bán, tổng tiền
-  - Cập nhật tự động tổng tiền khi thêm / sửa / xoá sản phẩm
-  - Nhập tiền khách đưa → hệ thống tính tiền thừa tự động
-  - In hóa đơn dưới dạng **PDF** (`order_invoice_pdf.blade.php`)
-- Các chức năng xử lý:
-  - `new_order_form.blade.php` – Tạo đơn hàng
-  - `confirm_order.blade.php` – Xác nhận đơn hàng
-  - `history_order.blade.php` – Lịch sử đơn hàng
+  - Tìm sản phẩm bằng tên hoặc mã vạch.
+  - Thêm/xóa/sửa số lượng sản phẩm trong giỏ hàng.
+  - Hệ thống tự động cập nhật tổng tiền và tiền thừa.
+  - Xuất hóa đơn **PDF** (file `order_invoice_pdf.blade.php`).
+- Quy trình được xử lý qua các file:
+  - `new_order_form.blade.php` – Tạo đơn hàng  
+  - `confirm_order.blade.php` – Xác nhận đơn hàng  
+  - `history_order.blade.php` – Lịch sử đơn hàng  
   - `order_detail.blade.php` – Chi tiết đơn hàng
 
 ---
 
-### 5️⃣ Báo cáo & Thống kê (Reporting & Analytics)
-- Hiển thị:
-  - Doanh thu theo mốc thời gian: **hôm nay, hôm qua, 7 ngày qua, tháng này**, hoặc **tùy chọn khoảng thời gian**
-  - Tổng doanh thu, số đơn hàng, số lượng sản phẩm
-  - Lợi nhuận (chỉ admin xem được)
-- Có thể xem chi tiết từng hóa đơn, thống kê theo nhân viên
+### 5️⃣ Báo cáo & thống kê
+- Hiển thị doanh thu và hoạt động theo thời gian:
+  - Hôm nay, hôm qua, 7 ngày qua, tháng này, hoặc tùy chọn khoảng thời gian cụ thể.
+- Dữ liệu gồm:
+  - Tổng doanh thu, số đơn hàng, số sản phẩm bán ra.
+  - Lợi nhuận (chỉ hiển thị cho admin).
+- Có thể xem chi tiết từng hóa đơn và lọc theo nhân viên.
 
 ---
 
-## 🧱 Cấu trúc thư mục (dự kiến)
+## 🧱 CẤU TRÚC THƯ MỤC DỰ ÁN
 
 ```
-an-khang-store/
+store.com/
 │
 ├── app/
 │   ├── Http/
 │   │   ├── Controllers/
-│   │   │   ├── AuthController.php
-│   │   │   ├── UserController.php
-│   │   │   ├── SanPhamController.php
-│   │   │   ├── CustomerController.php
-│   │   │   ├── OrderController.php
-│   │   │   └── DashboardController.php
+│   │   │   ├── Backend/
+│   │   │   │   ├── AuthController.php
+│   │   │   │   ├── DashboardController.php
+│   │   │   │   ├── UserController.php
+│   │   │   │   ├── SanPhamController.php
+│   │   │   │   ├── CustomerController.php
+│   │   │   │   ├── ProfileController.php
+│   │   │   └── OrderController.php
 │   │   └── Middleware/
-│   └── Models/
-│       ├── User.php
-│       ├── SanPham.php
-│       ├── KhachHang.php
-│       ├── DonHang.php
-│       └── ChiTietDonHang.php
+│   ├── Models/
+│   ├── Mail/
+│   └── Providers/
 │
 ├── resources/
-│   └── views/
-│       ├── backend/
-│       │   ├── auth/
-│       │   ├── admin/
-│       │   ├── employee/
-│       │   ├── orders/
-│       │   ├── customers/
-│       │   └── products/
-│       └── modal/
+│   ├── views/
+│   │   ├── backend/
+│   │   ├── layouts/
+│   │   ├── customers/
+│   │   ├── orders/
+│   │   ├── products/
+│   │   └── reports/
+│   └── components/
+│
+├── routes/
+│   └── web.php
 │
 ├── database/
 │   ├── migrations/
 │   └── seeders/
 │
 ├── public/
-│   └── uploads/
+│   ├── assets/
+│   ├── uploads/
+│   └── index.php
 │
-├── routes/
-│   └── web.php
-│
-└── .env
+├── composer.json
+├── package.json
+└── vite.config.js
 ```
 
 ---
 
-## 🔑 Tài khoản mẫu (Demo)
+## 🔑 TÀI KHOẢN MẪU (DEMO)
 
 | Loại tài khoản | Username | Password |
 |----------------|-----------|-----------|
 | Admin | `admin` | `admin` |
-| Nhân viên | `nhanvien01` | `nhanvien01` *(tự động tạo và nhận email link kích hoạt)* |
+| Nhân viên | `nhanvien01` | `nhanvien01` *(nhận email kích hoạt tự động)* |
 
 📺 **Demo Video:** [YouTube Link](https://youtu.be/XLwuIJpsN-M)
 
 ---
 
-## 🚀 Cài đặt & Chạy dự án
+## 🚀 HƯỚNG DẪN CÀI ĐẶT & CHẠY DỰ ÁN
 
-### 1️⃣ Cài đặt môi trường
+### Bước 1: Cài đặt môi trường
 ```bash
-git clone https://github.com/<your_username>/an-khang-store.git
-cd an-khang-store
+git clone https://github.com/<your_username>/store.com.git
+cd store.com
 composer install
+npm install
 cp .env.example .env
 php artisan key:generate
 ```
 
-### 2️⃣ Cấu hình `.env`
+### Bước 2: Cấu hình `.env`
 ```bash
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=ankhang_store
+DB_DATABASE=store_db
 DB_USERNAME=root
 DB_PASSWORD=
 
@@ -186,44 +200,50 @@ MAIL_MAILER=smtp
 MAIL_HOST=smtp.gmail.com
 MAIL_PORT=587
 MAIL_USERNAME=<your_gmail>
-MAIL_PASSWORD=<your_app_password>
+MAIL_PASSWORD=<app_password>
 MAIL_ENCRYPTION=tls
 MAIL_FROM_ADDRESS=<your_gmail>
 MAIL_FROM_NAME="AN KHANG STORE"
 ```
 
-### 3️⃣ Tạo database & chạy migration
+### Bước 3: Khởi tạo dữ liệu
 ```bash
 php artisan migrate --seed
 ```
 
-### 4️⃣ Chạy server
+### Bước 4: Chạy dự án
 ```bash
 php artisan serve
+npm run dev
 ```
-→ Truy cập: **http://127.0.0.1:8000**
+Truy cập tại **http://127.0.0.1:8000**
 
 ---
 
-## 📈 Định hướng phát triển tương lai
-- Tích hợp **API RESTful** để mở rộng kết nối với ứng dụng mobile.  
-- Áp dụng **Vue.js hoặc ReactJS** cho frontend hiện đại hơn.  
-- Hỗ trợ **in hóa đơn trực tiếp** và **QR thanh toán tự động**.  
-- Thêm **dashboard real-time** cho admin với biểu đồ doanh thu.  
+## 📊 HƯỚNG PHÁT TRIỂN TƯƠNG LAI
+- Xây dựng **API RESTful** cho ứng dụng mobile.
+- Tích hợp **QR Code thanh toán tự động**.
+- Thêm **dashboard realtime** cho admin.
+- Nâng cấp UI với **Vue.js hoặc ReactJS**.
+- Tối ưu bảo mật và phân quyền chi tiết hơn.
+- Hỗ trợ **in hóa đơn trực tiếp** và thống kê nâng cao.
 
 ---
 
-## 🧠 Kiến thức áp dụng
+## 🧠 KIẾN THỨC ÁP DỤNG
 - Laravel MVC Architecture  
-- Blade Template & Routing  
+- Livewire Component Lifecycle  
+- Blade Template Engine  
 - Laravel Mail (SMTP Gmail)  
-- MySQL CRUD Operations  
-- jQuery Event Handling & AJAX  
-- Bootstrap 5 Responsive Design  
+- Toastr Notifications  
+- DOMPDF Export  
+- MySQL CRUD + Seeder  
+- Middleware & Routing in Laravel  
+- Bootstrap Responsive Layout  
 
 ---
 
-## 📅 Thông tin thêm
+## 📅 THÔNG TIN THÊM
 - **Lớp:** 22050301  
 - **Khoá:** 26  
 - **Học kỳ:** 2/2023–2024  
@@ -231,5 +251,5 @@ php artisan serve
 
 ---
 
-> © 2024 AN KHANG STORE Team – Trần Khiết Lôi, Trần Hồ Hoàng Vũ, Phạm Tuấn Đạt, Nguyễn Đức Trung.  
-> All rights reserved.
+> © 2024 AN KHANG STORE Team – Trần Khiết Lôi, Trần Hồ Hoàng Vũ, Phạm Tuấn Đạt, Nguyễn Đức Trung  
+> *Sản phẩm học thuật phục vụ môn học Lập trình Web và Ứng dụng*
