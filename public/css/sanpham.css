@@ -1,0 +1,140 @@
+/* public/css/user_show.css */
+
+.container {
+    margin-top: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.add {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.table th,
+.table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.table th {
+    background-color:#008c28;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.table td img {
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.table td img:hover {
+    transform: scale(1.1);
+}
+
+.btn {
+    padding: 10px 15px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-primary {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+.deleted-row {
+    animation: fadeOut 0.5s forwards;
+}
+
+
+.btn-primary:hover {
+    background-color: lightblue;
+}
+
+.btn-primary{
+    background-color: blue;
+    padding: 8px;
+    border-radius: 4px;
+    color: white;
+    text-decoration: none; /* Loại bỏ gạch chân cho liên kết */
+}
+
+#themsp:hover {
+    background-color: 218838;
+}
+
+#themsp{
+    padding: 10px 15px;
+    font-size: 14px;
+    background-color: 28a745;
+    padding: 10px 15px;
+    border-radius: 4px;
+    color: white;
+    text-decoration: none; /* Loại bỏ gạch chân cho liên kết */
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-end;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+    float: right; /* Đẩy nút sang phải */
+    width: auto; /* Đảm bảo nút không kéo dài cả trang web */
+}
+
+.btn-danger{
+    padding: 8px;
+    border-radius: 4px;
+    color: white;
+    text-decoration: none; /* Loại bỏ gạch chân cho liên kết */
+}
+.btn-danger:hover{
+    background-color: lightgray;
+
+}
+

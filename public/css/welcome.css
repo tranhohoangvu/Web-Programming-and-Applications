@@ -1,0 +1,99 @@
+/* Đổi màu header */
+/* .custom-navbar {
+    background-color: #00c828;
+} */
+
+/* Cải thiện bố cục và hiệu ứng */
+#products h2 {
+    margin-top: 50px;
+}
+
+.card {
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+    height: 100%; /* Đảm bảo card chiếm toàn bộ chiều cao */
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body {
+    flex: 1; /* Đẩy nội dung card xuống phía dưới */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Căn đều nội dung bên trong card */
+}
+
+.card-title {
+    font-size: 1.25rem;
+}
+
+.card-text {
+    margin-top: 10px;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+footer {
+    margin-top: 50px;
+    padding: 20px 0;
+    background-color: #f8f9fa;
+}
+
+footer h5 {
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+/* Đổi màu chữ và nền cho header */
+
+
+/* Đổi màu chữ cho footer */
+footer {
+    color: #ffffff; /* Màu chữ */
+    background-color:#008c28; /* Màu nền */
+}
+
+.product-img {
+    width: 100%; /* Chiều rộng đầy đủ của ảnh */
+    height: 100%; /* Chiều cao cố định của ảnh */
+    object-fit: cover; /* Đảm bảo ảnh không bị méo hoặc căng */
+}
+.banner {
+    width: 100%;
+    height: auto;
+}
+
+.custom-navbar {
+    background-color: #008c28; /* Màu nền */
+    color: #fff; /* Màu chữ */
+}
+
+.custom-navbar .navbar-brand,
+.custom-navbar .nav-link {
+    color: #fff; /* Màu chữ cho các liên kết */
+
+}
+
+.custom-navbar .navbar-toggler {
+    border-color: #fff; /* Màu đường viền của nút toggler */
+  
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+.carousel-item img:hover {
+    transform: scale(1.05);
+}
+.ellipse-img {
+    border-radius: 50%;
+}
+
+.btn-primary {
+    margin-top: 10px;
+    align-self: center; /* Căn nút vào giữa theo chiều ngang */
+}
